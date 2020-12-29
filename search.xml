@@ -106,6 +106,52 @@
 <li><code>.</code>、<code>*</code>、<code>::</code>、<code>?:</code>、<code>sizeof</code>不能被重载。</li>
 <li><code>()</code>、<code>[]</code>、<code>-&gt;</code>、<code>=</code>只能重载为成员函数。</li>
 </ul>
+<h2 id="五-继承和派生"><a href="#五-继承和派生" class="headerlink" title="五    继承和派生"></a>五    继承和派生</h2><h3 id="5-1-继承和派生的概念"><a href="#5-1-继承和派生的概念" class="headerlink" title="5.1    继承和派生的概念"></a>5.1    继承和派生的概念</h3><h4 id="5-1-1-基本概念"><a href="#5-1-1-基本概念" class="headerlink" title="5.1.1    基本概念"></a>5.1.1    基本概念</h4><p>当定义某个新类时，如果这个类和拥有某个已有类的全部特点，此外还有这个类没有的特点，那么可以把原有类作为基类，新类作为原有类的派生类。即基类派生了派生类，派生类继承了基类。基类的所有成员自动成为派生类的成员。派生类的成员函数不能访问基类的私有成员。继承方式可以是公有继承、私有继承和保护继承。一般使用公有继承。派生类对象占用内存大小等于基类对象占用内存空间大小加上派生类全体成员变量占用内存大小之和。派生类对象包含基类对象，而且基类对象存储位置在派生类对象新增的成员变量之前。</p>
+<h4 id="5-1-2-程序实例"><a href="#5-1-2-程序实例" class="headerlink" title="5.1.2    程序实例"></a>5.1.2    程序实例</h4><p>在基类和派生类有同名成员的情况下，在派生类的函数中或通过派生类对象访问同名成员，默认访问派生类成员。如需访问基类同名成员则使用<code>基类名::函数名()</code>。一般不在派生类中定义和基类同名的成员变量。</p>
+<h3 id="5-2-正确处理类的复合关系和继承关系"><a href="#5-2-正确处理类的复合关系和继承关系" class="headerlink" title="5.2    正确处理类的复合关系和继承关系"></a>5.2    正确处理类的复合关系和继承关系</h3><p>复合关系表现为封闭类，数学上可以称为属于。继承关系表现为派生类，数学上可以称为包含。一个类中有另一个类的指针的情况可以称为知道关系。</p>
+<h3 id="5-3-protected访问范围说明符"><a href="#5-3-protected访问范围说明符" class="headerlink" title="5.3    protected访问范围说明符"></a>5.3    protected访问范围说明符</h3><p>基类的保护成员可以在派生类的成员函数中被访问。派生类的成员函数只能访问所作用的那个对象的基类保护成员，不能访问其他对象的基类保护成员。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CBase</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> nPrivate;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> nPublic;</span><br><span class="line">    <span class="keyword">protected</span>:</span><br><span class="line">	<span class="keyword">int</span> nProtected;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CDerived</span>:</span><span class="keyword">public</span> CBase</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">AccessBase</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        nPublic=<span class="number">1</span>;</span><br><span class="line">        nPrivate=<span class="number">1</span>;			<span class="comment">//不能访问私有成员</span></span><br><span class="line">        nProtected=<span class="number">1</span>;</span><br><span class="line">        CBase f;</span><br><span class="line">        f.nProtected=<span class="number">1</span>;		<span class="comment">//不能访问其他对象的保护成员</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="5-4-派生类的构造函数和析构函数"><a href="#5-4-派生类的构造函数和析构函数" class="headerlink" title="5.4    派生类的构造函数和析构函数"></a>5.4    派生类的构造函数和析构函数</h3><p>任何生成派生类对象的语句都要说明其包含的基类对象是如何初始化的，默认使用无参构造函数初始化，如果基类没有无参构造函数，则编译错误。派生类对象生成时总是先执行基类的构造函数再执行派生类的构造函数，派生类对象消亡时总是先执行派生类的析构函数再执行基类的析构函数。如果一个派生类对象使用默认复制构造函数初始化，那么它的基类对象也要使用基类的复制构造函数初始化。</p>
+<h3 id="5-5-多层次的派生"><a href="#5-5-多层次的派生" class="headerlink" title="5.5    多层次的派生"></a>5.5    多层次的派生</h3><p>对于派生的派生，有直接基类和间接基类之分。定义派生类时只写直接基类，派生类自动继承所有间接基类。派生类的成员包括自己定义的成员、直接基类定义的成员以及所有间接基类的全部成员。</p>
+<h3 id="5-6-包含成员对象的派生类"><a href="#5-6-包含成员对象的派生类" class="headerlink" title="5.6    包含成员对象的派生类"></a>5.6    包含成员对象的派生类</h3><p>在派生类也是封闭类的情况下，构造函数调用顺序为自上至下所有基类、成员对象、自身，析构函数调用顺序为自身、成员对象、自下至上所有基类。</p>
+<h3 id="5-7-公有派生的赋值兼容规则"><a href="#5-7-公有派生的赋值兼容规则" class="headerlink" title="5.7    公有派生的赋值兼容规则"></a>5.7    公有派生的赋值兼容规则</h3><ul>
+<li>派生类对象可以赋值给基类对象</li>
+<li>派生类对象可以初始化基类引用</li>
+<li>派生类指针可以赋值给基类指针</li>
+</ul>
+<p>此规则只有public派生才成立，private和protected派生不成立。</p>
+<h3 id="5-8-基类和派生类指针的互相转换"><a href="#5-8-基类和派生类指针的互相转换" class="headerlink" title="5.8    基类和派生类指针的互相转换"></a>5.8    基类和派生类指针的互相转换</h3><p>即使基类指针指向派生类对象，也不能通过基类指针访问基类没有而派生类有的成员。基类指针指向派生类对象时仍然调用基类同名成员函数。基类指针不能赋值给派生类指针，除非经过强制类型转换。基类引用也可以强制转换为派生类引用。强制类型转换会导致不可预测的安全隐患。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CBase</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	CBase(<span class="keyword">int</span> i) :n(i) &#123; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Print</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;CBase:n=&quot;</span> &lt;&lt; n &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CDerived</span> :</span><span class="keyword">public</span> CBase</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> v;</span><br><span class="line">	CDerived(<span class="keyword">int</span> i) :CBase(i), v(<span class="number">2</span> * i) &#123; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Func</span><span class="params">()</span> </span>&#123; &#125;;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Print</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;CDerived:n=&quot;</span> &lt;&lt; n &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;CDerived:v=&quot;</span> &lt;&lt; v &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">CDerived <span class="title">objDerived</span><span class="params">(<span class="number">3</span>)</span></span>;</span><br><span class="line">	<span class="function">CBase <span class="title">objBase</span><span class="params">(<span class="number">5</span>)</span></span>;</span><br><span class="line">	CBase* pBase = &amp;objDerived; <span class="comment">// 使得基类指针指向派生类对象</span></span><br><span class="line">	<span class="comment">//pBase-&gt;Func(); //错, CBase类没有Func()成员函数</span></span><br><span class="line">	<span class="comment">//pBase-&gt;v = 5;  //错 CBase类没有v成员变量</span></span><br><span class="line">	pBase-&gt;Print();</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;1)------------&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="comment">//CDerived * pDerived = &amp; objBase; //错，不能将基类指针赋值给派生类指针</span></span><br><span class="line">	CDerived* pDerived = (CDerived*)(&amp;objBase);</span><br><span class="line">	pDerived-&gt;Print();  <span class="comment">//慎用，可能出现不可预期的错误</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;2)------------&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	objDerived.Print();</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;3)------------&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	pDerived-&gt;v = <span class="number">128</span>;  <span class="comment">//往别人的空间里写入数据，会有问题</span></span><br><span class="line">	objDerived.Print();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-9-私有派生和保护派生"><a href="#5-9-私有派生和保护派生" class="headerlink" title="5.9    私有派生和保护派生"></a>5.9    私有派生和保护派生</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>公有派生</th>
+<th>私有派生</th>
+<th>保护派生</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>私有成员</td>
+<td>不可访问</td>
+<td>不可访问</td>
+<td>不可访问</td>
+</tr>
+<tr>
+<td>保护成员</td>
+<td>保护</td>
+<td>私有</td>
+<td>保护</td>
+</tr>
+<tr>
+<td>公有成员</td>
+<td>公有</td>
+<td>私有</td>
+<td>保护</td>
+</tr>
+</tbody></table>
+<p>一般情况下都应使用公有派生。</p>
+<h3 id="5-10-派生类和赋值运算符"><a href="#5-10-派生类和赋值运算符" class="headerlink" title="5.10    派生类和赋值运算符"></a>5.10    派生类和赋值运算符</h3><p>如果基类重载了赋值运算符而派生类没有，那么派生类互相赋值或是给基类对象赋值时基类部分调用被基类重载的赋值运算符。</p>
 ]]></content>
   </entry>
 </search>
