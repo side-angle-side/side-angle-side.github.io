@@ -163,6 +163,104 @@
 <h3 id="6-5-虚析构函数"><a href="#6-5-虚析构函数" class="headerlink" title="6.5    虚析构函数"></a>6.5    虚析构函数</h3><p>为了让动态分配的内存释放时能够根据指针指向的对象调用对应的析构函数，需要将基类的析构函数声明为虚函数。一个类如果定义了虚函数，则最好将析构函数也定义成虚函数。基类析构函数是虚函数，派生类析构函数自动成为虚函数。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CShape</span>  //基类：形体类</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">virtual</span> ~CShape()&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="6-6-纯虚函数和抽象类"><a href="#6-6-纯虚函数和抽象类" class="headerlink" title="6.6    纯虚函数和抽象类"></a>6.6    纯虚函数和抽象类</h3><p>纯虚函数是没有函数体的函数，包含纯虚函数的类称为抽象类。抽象类不能生成独立的对象，但可以定义抽象类的指针和引用。抽象类的派生类当且仅当实现了所有纯虚函数才成为非抽象类。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Print</span><span class="params">()</span></span>=<span class="number">0</span>;		<span class="comment">//纯虚函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Print</span><span class="params">()</span></span>=<span class="number">0</span>;		<span class="comment">//纯虚函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="七-输入输出流"><a href="#七-输入输出流" class="headerlink" title="七    输入输出流"></a>七    输入输出流</h2><h3 id="7-1-流类"><a href="#7-1-流类" class="headerlink" title="7.1    流类"></a>7.1    流类</h3><p>流是数据从一个地方传送到另一个地方的抽象。C++把用于数据输入输出的类称为流类。<code>ios</code>是抽象的基类，派生出<code>istream</code>和<code>ostream</code>，这两个类又共同派生出<code>iostream</code>。为避免多继承的二义性，从<code>ios</code>派生出<code>istream</code>和<code>ostream</code>时使用了虚继承。</p>
+<h3 id="7-2-标准流对象"><a href="#7-2-标准流对象" class="headerlink" title="7.2    标准流对象"></a>7.2    标准流对象</h3><p><code>cin</code>对应标准输入流，用于从键盘读取数据，可重定向为从文件读取数据。</p>
+<p><code>cout</code>对应标准输出流，用于向屏幕输出数据，可重定向为从文件写入数据。</p>
+<p><code>cerr</code>对应标准错误输出流，不使用缓冲区，不能被重定向。 </p>
+<p><code>clog</code>对应标准错误输出流，使用缓冲区，不能被重定向。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x, y;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y;</span><br><span class="line">	freopen(<span class="string">&quot;test.txt&quot;</span>, <span class="string">&quot;w&quot;</span>, <span class="built_in">stdout</span>);  <span class="comment">//将标准输出重定向到 test.txt文件</span></span><br><span class="line">	<span class="keyword">if</span> (y == <span class="number">0</span>)  <span class="comment">//除数为0则输出错误信息</span></span><br><span class="line">		<span class="built_in">cerr</span> &lt;&lt; <span class="string">&quot;error.&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; x / y;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7-3-使用流操纵算子控制输出格式"><a href="#7-3-使用流操纵算子控制输出格式" class="headerlink" title="7.3    使用流操纵算子控制输出格式"></a>7.3    使用流操纵算子控制输出格式</h3><p>使用流操纵算子（又叫格式控制符）需要包含<code>iomanip</code>头文件。 </p>
+<table>
+<thead>
+<tr>
+<th>流操纵算子</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hex</code></td>
+<td>十六进制输出整数</td>
+</tr>
+<tr>
+<td><code>oct</code></td>
+<td>八进制输出整数</td>
+</tr>
+<tr>
+<td><code>fixed</code></td>
+<td>普通小数形式输出浮点数</td>
+</tr>
+<tr>
+<td><code>scientific</code></td>
+<td>科学计数法输出浮点数</td>
+</tr>
+<tr>
+<td><code>left</code></td>
+<td>左对齐，宽度不足时填充字符添加到左边</td>
+</tr>
+<tr>
+<td><code>setbase(b)</code></td>
+<td>设置输出整数时的进制，为8、10或16</td>
+</tr>
+<tr>
+<td><code>setw(w)</code></td>
+<td>输出宽度或读入w个字符</td>
+</tr>
+<tr>
+<td><code>setfill(c)</code></td>
+<td>输出宽度不足时用c填充</td>
+</tr>
+<tr>
+<td><code>setprecision(n)</code></td>
+<td>设置浮点数输出精度为n</td>
+</tr>
+<tr>
+<td><code>setiosflags(格式)</code></td>
+<td>将某个格式标志置为1</td>
+</tr>
+<tr>
+<td><code>reseriosflags(格式)</code></td>
+<td>将某个格式标志置为0</td>
+</tr>
+<tr>
+<td><code>boolapha</code></td>
+<td>true和false输出为字符串</td>
+</tr>
+<tr>
+<td><code>showbase</code></td>
+<td>输出进制前缀</td>
+</tr>
+<tr>
+<td><code>showpoint</code></td>
+<td>总是输出小数点</td>
+</tr>
+<tr>
+<td><code>showpos</code></td>
+<td>非负数显示+</td>
+</tr>
+<tr>
+<td><code>noskipws</code></td>
+<td>输入时不跳过空白字符</td>
+</tr>
+<tr>
+<td><code>uppercase</code></td>
+<td>使用大写字母输出十六进制、前缀和科学计数法</td>
+</tr>
+<tr>
+<td><code>internal</code></td>
+<td>符号左对齐，数值右对齐</td>
+</tr>
+</tbody></table>
+<p>流操纵算子影响整个语句，但setw算子只影响下一次输出或输入。</p>
+<h3 id="7-4-调用cout的成员函数"><a href="#7-4-调用cout的成员函数" class="headerlink" title="7.4    调用cout的成员函数"></a>7.4    调用cout的成员函数</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cout</span>.setf(ios::scientific);</span><br><span class="line"><span class="built_in">cout</span>.precision(<span class="number">8</span>);</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="number">12.23</span>&lt;&lt;<span class="built_in">endl</span>;		<span class="comment">//cout&lt;&lt;setiosflags(ios::scientific)&lt;&lt;setprecision(8)&lt;&lt;12.23&lt;&lt;endl;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span>.put(<span class="number">98</span>).put(<span class="string">&#x27;c&#x27;</span>).put(<span class="string">&#x27;z&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="7-5-cin的高级用法"><a href="#7-5-cin的高级用法" class="headerlink" title="7.5    cin的高级用法"></a>7.5    cin的高级用法</h3><h4 id="7-5-1-判断输入结束"><a href="#7-5-1-判断输入结束" class="headerlink" title="7.5.1    判断输入结束"></a>7.5.1    判断输入结束</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,maxN=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)</span><br><span class="line">    &#123;<span class="comment">//istream类重载了bool运算符，读取到输入结尾或输入错误返回false</span></span><br><span class="line">        <span class="keyword">if</span>(maxN&lt;n)</span><br><span class="line">            maxN=n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;maxN;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="7-5-2-istream类的成员函数"><a href="#7-5-2-istream类的成员函数" class="headerlink" title="7.5.2    istream类的成员函数"></a>7.5.2    istream类的成员函数</h4><h5 id="1-get"><a href="#1-get" class="headerlink" title="1.get"></a>1.get</h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c;							<span class="comment">//注意c的类型为int，若为char则读入ASCII码为0xFF的字符会导致输入终止</span></span><br><span class="line">    freopen(<span class="string">&quot;test.txt&quot;</span>,<span class="string">&quot;r&quot;</span>,<span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">while</span>(c=<span class="built_in">cin</span>.get()!=EOF)				<span class="comment">//get函数可以正常读入所有字符，EOF是iostream类定义的整型常量，值为-1，表示输入终止</span></span><br><span class="line">        <span class="built_in">cout</span>.put(c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-getline"><a href="#2-getline" class="headerlink" title="2.getline"></a>2.getline</h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> szBuf[<span class="number">20</span>];</span><br><span class="line">	<span class="keyword">int</span> n = <span class="number">120</span>;</span><br><span class="line">	<span class="keyword">if</span> (!<span class="built_in">cin</span>.getline(szBuf, <span class="number">6</span>))  <span class="comment">//如果输入流中一行字符超过5个，就会出错</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;error&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; szBuf &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; n &lt;&lt; <span class="built_in">endl</span>;;</span><br><span class="line">	<span class="built_in">cin</span>.clear(); <span class="comment">//clear能够清除cin内部的错误标记，使之恢复正常</span></span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; n &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-eof"><a href="#3-eof" class="headerlink" title="3.eof"></a>3.eof</h5><p><code>bool eof()</code>判断输入流是否结束，若结束返回<code>true</code>。</p>
+<h5 id="4-ignore"><a href="#4-ignore" class="headerlink" title="4.ignore"></a>4.ignore</h5><p><code>istream&amp; ignore(int n=1,int delim=EOF)</code>用于跳过n个字符或delim前所有字符。</p>
+<h5 id="5-peek"><a href="#5-peek" class="headerlink" title="5.peek"></a>5.peek</h5><p>此函数返回下一个字符，但不会将该字符从输入流中取走。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">string</span> Months[<span class="number">12</span>] = &#123; <span class="string">&quot;Jan&quot;</span>,<span class="string">&quot;Feb&quot;</span>,<span class="string">&quot;Mar&quot;</span>,<span class="string">&quot;Apr&quot;</span>,<span class="string">&quot;May&quot;</span>,<span class="string">&quot;Jun&quot;</span>,<span class="string">&quot;Jul&quot;</span>,<span class="string">&quot;Aug&quot;</span>,</span><br><span class="line">					  <span class="string">&quot;Sep&quot;</span>,<span class="string">&quot;Oct&quot;</span>,<span class="string">&quot;Nov&quot;</span>,<span class="string">&quot;Dec&quot;</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> c;</span><br><span class="line">	<span class="keyword">while</span> ((c = <span class="built_in">cin</span>.peek()) != EOF) &#123; <span class="comment">//取输入流中的第一个字符进行查看</span></span><br><span class="line">		<span class="keyword">int</span> year, month, day;</span><br><span class="line">		<span class="keyword">if</span> (c &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; c &lt;= <span class="string">&#x27;Z&#x27;</span>) &#123; <span class="comment">//美国日期格式</span></span><br><span class="line">			<span class="built_in">string</span> sMonth;</span><br><span class="line">			<span class="built_in">cin</span> &gt;&gt; sMonth &gt;&gt; day &gt;&gt; year;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">12</span>; ++i)  <span class="comment">//查找月份</span></span><br><span class="line">				<span class="keyword">if</span> (sMonth == Months[i]) &#123;</span><br><span class="line">					month = i + <span class="number">1</span>;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123; <span class="comment">//中国日期格式</span></span><br><span class="line">			<span class="built_in">cin</span> &gt;&gt; year;</span><br><span class="line">			<span class="built_in">cin</span>.ignore() &gt;&gt; month; <span class="comment">//用ignore跳过 &quot;2011.12.3&quot;中的&#x27;.&#x27;</span></span><br><span class="line">			<span class="built_in">cin</span>.ignore() &gt;&gt; day;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cin</span>.ignore();   <span class="comment">//跳过行末 &#x27;\n&#x27;</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; setfill(<span class="string">&#x27;0&#x27;</span>) &lt;&lt; setw(<span class="number">2</span>) &lt;&lt; month;<span class="comment">//设置填充字符&#x27;\0&#x27;，输出宽度2</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;-&quot;</span> &lt;&lt; setw(<span class="number">2</span>) &lt;&lt; day &lt;&lt; <span class="string">&quot;-&quot;</span> &lt;&lt; setw(<span class="number">4</span>) &lt;&lt; year &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以使用get和putback配合达到同样的效果。</p>
+]]></content>
   </entry>
 </search>
