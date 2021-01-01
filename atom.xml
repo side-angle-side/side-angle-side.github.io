@@ -3,11 +3,11 @@
   <title>tetrahedron&#39;s Hexo</title>
   
   
-  <link href="https://side-angle-side.gitee.io/hexo/atom.xml" rel="self"/>
+  <link href="http://example.com/atom.xml" rel="self"/>
   
-  <link href="https://side-angle-side.gitee.io/hexo/"/>
-  <updated>2021-01-01T12:23:19.002Z</updated>
-  <id>https://side-angle-side.gitee.io/hexo/</id>
+  <link href="http://example.com/"/>
+  <updated>2021-01-01T13:41:42.607Z</updated>
+  <id>http://example.com/</id>
   
   <author>
     <name>tetrahedron</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>数据结构与算法笔记</title>
-    <link href="https://side-angle-side.gitee.io/hexo/2021/01/02/data-structures-and-algorithms/"/>
-    <id>https://side-angle-side.gitee.io/hexo/2021/01/02/data-structures-and-algorithms/</id>
+    <link href="http://example.com/2021/01/02/data-structures-and-algorithms/"/>
+    <id>http://example.com/2021/01/02/data-structures-and-algorithms/</id>
     <published>2021-01-02T03:24:55.000Z</published>
-    <updated>2021-01-01T12:23:19.002Z</updated>
+    <updated>2021-01-01T13:41:42.607Z</updated>
     
     <content type="html"><![CDATA[<center>    <img style="border-radius: 0.3125em;    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2021/01/02/data-structures-and-algorithms/IMG_20201225_124919.jpg">    <div style="color:orange; border-bottom: 1px solid #d9d9d9;    display: inline-block;    color: #999;    padding: 2px;">或许前路永夜，即便如此我也要前进，因为星光即使微弱也会为我照亮前路。</div>    <br></center><a id="more"></a>]]></content>
     
@@ -39,12 +39,18 @@
     
     
     
+    <category term="1" scheme="http://example.com/tags/1/"/>
+    
+    <category term="2" scheme="http://example.com/tags/2/"/>
+    
+    <category term="3" scheme="http://example.com/tags/3/"/>
+    
   </entry>
   
   <entry>
     <title>Hello,2021!</title>
-    <link href="https://side-angle-side.gitee.io/hexo/2021/01/01/hello2021/"/>
-    <id>https://side-angle-side.gitee.io/hexo/2021/01/01/hello2021/</id>
+    <link href="http://example.com/2021/01/01/hello2021/"/>
+    <id>http://example.com/2021/01/01/hello2021/</id>
     <published>2020-12-31T16:00:00.000Z</published>
     <updated>2020-12-31T07:33:16.257Z</updated>
     
@@ -63,8 +69,8 @@
   
   <entry>
     <title>C++程序设计笔记</title>
-    <link href="https://side-angle-side.gitee.io/hexo/2020/12/28/fundamentals-of-Cpp-programming/"/>
-    <id>https://side-angle-side.gitee.io/hexo/2020/12/28/fundamentals-of-Cpp-programming/</id>
+    <link href="http://example.com/2020/12/28/fundamentals-of-Cpp-programming/"/>
+    <id>http://example.com/2020/12/28/fundamentals-of-Cpp-programming/</id>
     <published>2020-12-28T05:05:23.000Z</published>
     <updated>2021-01-01T12:24:52.905Z</updated>
     
