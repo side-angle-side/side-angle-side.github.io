@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello,2021!</title>
+    <title>Plugin Test</title>
     <url>/2021/01/01/hello2021/</url>
     <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> ___  ___  _______   ___       ___       ________    _______  ________    _______   _____     </span><br><span class="line">|\  \|\  \|\  ___ \ |\  \     |\  \     |\   __  \  &#x2F;  ___  \|\   __  \  &#x2F;  ___  \ &#x2F; __  \    </span><br><span class="line">\ \  \\\  \ \   __&#x2F;|\ \  \    \ \  \    \ \  \|\  \&#x2F;__&#x2F;|_&#x2F;  &#x2F;\ \  \|\  \&#x2F;__&#x2F;|_&#x2F;  &#x2F;|\&#x2F;_|\  \   </span><br><span class="line"> \ \   __  \ \  \_|&#x2F;_\ \  \    \ \  \    \ \  \\\  \__|&#x2F;&#x2F;  &#x2F; &#x2F;\ \  \\\  \__|&#x2F;&#x2F;  &#x2F; ||&#x2F; \ \  \  </span><br><span class="line">  \ \  \ \  \ \  \_|\ \ \  \____\ \  \____\ \  \\\  \  &#x2F;  &#x2F;_&#x2F;__\ \  \\\  \  &#x2F;  &#x2F;_&#x2F;__   \ \  \ </span><br><span class="line">   \ \__\ \__\ \_______\ \_______\ \_______\ \_______\|\________\ \_______\|\________\  \ \__\</span><br><span class="line">    \|__|\|__|\|_______|\|_______|\|_______|\|_______| \|_______|\|_______| \|_______|   \|__|</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>tested by tetrahedron</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+      </tags>
   </entry>
   <entry>
     <title>数据结构与算法笔记</title>

@@ -42,22 +42,23 @@
   </entry>
   
   <entry>
-    <title>Hello,2021!</title>
+    <title>Plugin Test</title>
     <link href="http://example.com/2021/01/01/hello2021/"/>
     <id>http://example.com/2021/01/01/hello2021/</id>
     <published>2020-12-31T16:00:00.000Z</published>
-    <updated>2020-12-31T07:33:16.257Z</updated>
+    <updated>2021-01-01T17:06:44.818Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> ___  ___  _______   ___       ___       ________    _______  ________    _______   _____     </span><br><span class="line">|\  \|\  \|\  ___ \ |\  \     |\  \     |\   __  \  &#x2F;  ___  \|\   __  \  &#x2F;  ___  \ &#x2F; __  \    </span><br><span class="line">\ \  \\\  \ \   __&#x2F;|\ \  \    \ \  \    \ \  \|\  \&#x2F;__&#x2F;|_&#x2F;  &#x2F;\ \  \|\  \&#x2F;__&#x2F;|_&#x2F;  &#x2F;|\&#x2F;_|\  \   </span><br><span class="line"> \ \   __  \ \  \_|&#x2F;_\ \  \    \ \  \    \ \  \\\  \__|&#x2F;&#x2F;  &#x2F; &#x2F;\ \  \\\  \__|&#x2F;&#x2F;  &#x2F; ||&#x2F; \ \  \  </span><br><span class="line">  \ \  \ \  \ \  \_|\ \ \  \____\ \  \____\ \  \\\  \  &#x2F;  &#x2F;_&#x2F;__\ \  \\\  \  &#x2F;  &#x2F;_&#x2F;__   \ \  \ </span><br><span class="line">   \ \__\ \__\ \_______\ \_______\ \_______\ \_______\|\________\ \_______\|\________\  \ \__\</span><br><span class="line">    \|__|\|__|\|_______|\|_______|\|_______|\|_______| \|_______|\|_______| \|_______|   \|__|</span><br></pre></td></tr></table></figure>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class</summary>
-      
+    <summary type="html">Hello world on hexo!</summary>
     
     
     
+    <category term="tested by tetrahedron" scheme="http://example.com/categories/tested-by-tetrahedron/"/>
+    
+    
+    <category term="test" scheme="http://example.com/tags/test/"/>
     
   </entry>
   
