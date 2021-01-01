@@ -2,12 +2,12 @@
 <search>
   <entry>
     <title>Hello,2021!</title>
-    <url>/2021/01/01/hello2021/</url>
+    <url>/hexo/2021/01/01/hello2021/</url>
     <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> ___  ___  _______   ___       ___       ________    _______  ________    _______   _____     </span><br><span class="line">|\  \|\  \|\  ___ \ |\  \     |\  \     |\   __  \  &#x2F;  ___  \|\   __  \  &#x2F;  ___  \ &#x2F; __  \    </span><br><span class="line">\ \  \\\  \ \   __&#x2F;|\ \  \    \ \  \    \ \  \|\  \&#x2F;__&#x2F;|_&#x2F;  &#x2F;\ \  \|\  \&#x2F;__&#x2F;|_&#x2F;  &#x2F;|\&#x2F;_|\  \   </span><br><span class="line"> \ \   __  \ \  \_|&#x2F;_\ \  \    \ \  \    \ \  \\\  \__|&#x2F;&#x2F;  &#x2F; &#x2F;\ \  \\\  \__|&#x2F;&#x2F;  &#x2F; ||&#x2F; \ \  \  </span><br><span class="line">  \ \  \ \  \ \  \_|\ \ \  \____\ \  \____\ \  \\\  \  &#x2F;  &#x2F;_&#x2F;__\ \  \\\  \  &#x2F;  &#x2F;_&#x2F;__   \ \  \ </span><br><span class="line">   \ \__\ \__\ \_______\ \_______\ \_______\ \_______\|\________\ \_______\|\________\  \ \__\</span><br><span class="line">    \|__|\|__|\|_______|\|_______|\|_______|\|_______| \|_______|\|_______| \|_______|   \|__|</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>数据结构与算法笔记</title>
-    <url>/2021/01/02/data-structures-and-algorithms/</url>
+    <url>/hexo/2021/01/02/data-structures-and-algorithms/</url>
     <content><![CDATA[<center>
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2021/01/02/data-structures-and-algorithms/IMG_20201225_124919.jpg">
@@ -30,7 +30,7 @@
   </entry>
   <entry>
     <title>C++程序设计笔记</title>
-    <url>/2020/12/28/fundamentals-of-Cpp-programming/</url>
+    <url>/hexo/2020/12/28/fundamentals-of-Cpp-programming/</url>
     <content><![CDATA[<center>
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" src="/2020/12/28/fundamentals-of-Cpp-programming/IMG_20201223_235334.jpg">
