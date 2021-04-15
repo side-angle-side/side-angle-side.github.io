@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-02T14:04:51.144Z</updated>
+  <updated>2021-04-15T06:48:48.078Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2021/04/15/information_theory/"/>
+    <id>http://example.com/2021/04/15/information_theory/</id>
+    <published>2021-04-15T06:48:48.078Z</published>
+    <updated>2021-04-15T06:48:48.078Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="信息论"><a href="#信息论" class="headerlink" title="信息论"></a>信息论</h1><h2 id="1-1"><a href="#1-1" class="headerlink" title="1.1"></a>1.1</h2><p>信息是事物运动状态或存在方式不确定性的描述。</p><p>信息论的研究对象是通信系统模型，包括三个基本要素，信源、信道、信宿。我们期望信息能够用最短的编码方式无差错完成传输。</p><p>为此，我们加入了信源编码、加密、信道编码，信道译码、解密、信源译码模块，以提高信息传输的可靠性、有效性、保密性、认证性。</p><h2 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h2><p>样本空间<script type="math/tex">\left[ \matrix{ X \\ P } \right] =\left[  \matrix{x_1&x_2&\cdots&x_n\\p(x_1)&p(x_2)&\cdots&p(x_n)} \right]</script>中符号$x_i$的先验概率$p(x_i)$的不确定性大小$f(p(x_i))$满足以下条件：</p><p>$f(1)=0$；</p><p>$f(p(x))$单调递减；</p><p>$f(p(x)p(y))=f(p(x))+f(p(y))$。</p><p>自信息<script type="math/tex">I(x_i)=\log{\dfrac{1}{P(x_i)}}=-\log{P(x_i)}</script>，选择某一符号携带的信息。</p><p>条件自信息<script type="math/tex">I(x_i|y_i)=\log{\dfrac{1}{P(x_i|y_i)}}</script>，接收端收到$y_i$后发送端发送$x_i$的信息。</p><blockquote><p>联合概率公式</p><p>$P(x_i,y_j)=P(x_i)P(y_j|x_i)=P(y_j)P(x_i|y_j)$</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;信息论&quot;&gt;&lt;a href=&quot;#信息论&quot; class=&quot;headerlink&quot; title=&quot;信息论&quot;&gt;&lt;/a&gt;信息论&lt;/h1&gt;&lt;h2 id=&quot;1-1&quot;&gt;&lt;a href=&quot;#1-1&quot; class=&quot;headerlink&quot; title=&quot;1.1&quot;&gt;&lt;/a&gt;1.1&lt;/h</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>数据结构与算法笔记</title>
