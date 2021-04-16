@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">270</span>
+            <span class="post-count">980</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -120,6 +120,39 @@
 <p>联合概率公式</p>
 <p>$P(x_i,y_j)=P(x_i)P(y_j|x_i)=P(y_j)P(x_i|y_j)$</p>
 </blockquote>
+<p>联合自信息量$I(x_i,y_j)=I(x_i)+I(y_j|x_i)=I(y_j)+I(x_i|y_j)$，自信息量具有链可加性。</p>
+<p>互信息量$I(x_i;y_j)=I(x_i)-I(x_i|y_j)=\log{\dfrac{P(x_i,y_j)}{P(x_i)P(y_j)}}=I(y_j)-I(y_j|x_i)=I(y_j;x_i)$，从一个信源中获得另一个信源的信息。</p>
+<p>互信息量具有互异性。独立变量的互信息量为0。互信息量可正可负。互信息小于等于自信息。</p>
+<h2 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h2><p>自信息量只表示单个符号不确定性，不表示信源总体不确定性。对信源的所有符号的自信息量进行统计平均得到的平均不确定性称为熵。</p>
+<script type="math/tex; mode=display">
+H(X)=-\sum_i{p_i\log{p_i}}</script><p>我们用离散熵度量信源的先验不确定性。熵是先验概率$p_i$的函数。</p>
+<p>熵具有对称性，交换任意两个符号的先验概率，熵不变。</p>
+<p>熵具有可扩展性，加入零概率符号，熵不变。</p>
+<p>熵具有非负性，信源为确定性概率分布时熵为0。</p>
+<p>熵具有强可加性，$H(XY)=H(X)+H(Y|X)$，相互独立时$H(XY)=H(X)+H(Y)$。</p>
+<p>熵具有渐化性，概率分布越均匀，平均不确定性越大，熵越大。</p>
+<p>熵具有凸状性，熵是上凸函数。</p>
+<p>熵具有极值性。</p>
+<blockquote>
+<p>信息论不等式</p>
+<p>对于实数$x&gt;0$，总有$\ln{x}\le x-1$，当且仅当$x=1$时等号成立。</p>
+<p>香农不等式</p>
+<script type="math/tex; mode=display">
+-\sum_{k=1}^{K}{\log{p_k}}\le-\sum_{k=1}^{K}{\log{q_k}}</script><p>当且仅当$p_k=q_k$时等号成立。</p>
+<p>证明：</p>
+<script type="math/tex; mode=display">
+\begin{align}-\sum_{k=1}^{K}{\log{p_k}}-(-\sum_{k=1}^{K}{\log{q_k}})&=\sum_{k=1}^{K}{p_k\log{\frac{q_k}{p_k}}}\\ &\le\log{e}\sum_{k=1}^{K}{p_k(\frac{q_k}{p_k}}-1)\\&=(\log{e})(\sum_{k=1}^{K}p_k-\sum_{k=1}^{K}q_k)\\&\le0\end{align}</script></blockquote>
+<h2 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h2><p>联合熵是联合自信息量的统计平均。条件熵是条件自信息量的统计平均。</p>
+<p>$H(XY)=H(X)+H(Y|X)=H(Y)+H(X|Y)$</p>
+<p>平均互信息量是互信息量的统计平均。</p>
+<p>$I(X;Y)=H(X)-H(X|Y)=H(Y)-H(Y|X)$</p>
+<p>从输入端看，从Y中获得X的信息等于X的先验不确定性减去Y的不确定性；从输出端看，输出Y中包含的全部信息包括输入X的有用信息和噪声引入的无用信息。</p>
+<p>平均互信息量具有互易性。</p>
+<p>平均互信息量具有非负性。推论：$H(X|Y)\le H(X)$，条件熵小于等于无条件熵。</p>
+<p>平均互信息量具有有界性，最大值为X或Y的熵。</p>
+<p>用集合表示X和Y的熵，联合熵为熵的并集，平均互信息量为熵的交集，条件熵为熵的差集。</p>
+<h2 id="2-4"><a href="#2-4" class="headerlink" title="2.4"></a>2.4</h2><p>离散无记忆信源独立同分布符号串的熵$H(X^N)=H(X_1X_2\cdots X_N)=NH(X)$。</p>
+<p>离散有记忆信源</p>
  
       <!-- reward -->
       
@@ -135,6 +168,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2021/04/16/PKUAutoEletiveCaptchaHelper/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            北京大学选课网验证码小助手
+          
+        </div>
+      </a>
     
     
       <a href="/2021/01/02/data-structures-and-algorithms/" class="article-nav-link">
