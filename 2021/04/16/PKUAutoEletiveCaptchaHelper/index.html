@@ -120,7 +120,18 @@
 </center>
 
 <p>样本总数是19490个，全部爬取自北京大学选课网，并且在打码平台打好了标签。经过简单的观察和分析，我们可以归纳出验证码的以下几个特征：</p>
-<p>图片分别率为130*52，png格式。图片只有一个通道，也就是说这张看起来是彩色的图像实际上是灰度图。图片名前四个字字符即为对应的标签。图片存在随机添加的噪点和线条，遮挡关系中均位于底层，因此对识别的影响程度不大。字符有两种表现形式，一种是实心字符，另一种是空心的边框，对识别影响程度未知。字符与字符间、字符与图片边界间可能存在遮挡关系，对识别影响程度较大。验证码字符集是字母和数字的子集，具体来说不包含“0，1，i，j，o，z”这6个字符。验证码不区分大小写，但图片中字符包含大小写。同一验证码可能出现重复字符。标签并非完全准确，后期统计估算的结果是，标签整体准确率约为90%。</p>
+<ol>
+<li>图片分别率为130*52，png格式。</li>
+<li>图片只有一个通道，也就是说这张看起来是彩色的图像实际上是灰度图。</li>
+<li>图片名前四个字字符即为对应的标签。</li>
+<li>图片存在随机添加的噪点和线条，遮挡关系中均位于底层，因此对识别的影响程度不大。</li>
+<li>字符有两种表现形式，一种是实心字符，另一种是空心的边框，对识别影响程度未知。</li>
+<li>字符与字符间、字符与图片边界间可能存在遮挡关系，对识别影响程度较大。</li>
+<li>验证码字符集是字母和数字的子集，具体来说不包含“0，1，i，j，o，z”这6个字符。</li>
+<li>验证码不区分大小写，但图片中字符包含大小写。</li>
+<li>同一验证码可能出现重复字符。</li>
+<li>标签并非完全准确，后期统计估算的结果是，标签整体准确率约为90%。</li>
+</ol>
 <p>综合以上几点，我们需要做的是输入一张图片，输出一个字符串，这个字符串即为对该图片的识别结果。很显然这是一个多分类问题，分类总数是$30^4=8.1\times 10^5$。对于这个数量级的多分类问题，我对人工智能能否胜任还打了个问号。毕竟随机一个结果，正确的概率约等于中头奖。面向CSDN编程当然能查出不少别人的成功样例，但是别人的代码和我们目前的需求依然存在不小的差异。我也只能以一点点可怜的tensorflow基础开始写代码。</p>
 <h2 id="图像预处理"><a href="#图像预处理" class="headerlink" title="图像预处理"></a>图像预处理</h2><p>tensorflow只能接受张量输入，因此我们首先要做的是把读取的图像转换成tensor类型。与此同时，我们还要从图片名中截出标签字段，转换成tensor一起送入神经网络训练。先把字母表写好：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alphabet = [<span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;7&#x27;</span>, <span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;9&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;f&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;h&#x27;</span>, <span class="string">&#x27;k&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;m&#x27;</span>, <span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;p&#x27;</span>, <span class="string">&#x27;q&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;s&#x27;</span>, <span class="string">&#x27;t&#x27;</span>, <span class="string">&#x27;u&#x27;</span>, <span class="string">&#x27;v&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, <span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;y&#x27;</span>]</span><br></pre></td></tr></table></figure>
@@ -197,9 +208,9 @@
   <nav class="article-nav">
     
     
-      <a href="/2021/04/15/information_theory/" class="article-nav-link">
+      <a href="/2021/01/02/data-structures-and-algorithms/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">信息论</div>
+        <div class="article-nav-title">数据结构与算法笔记</div>
       </a>
     
   </nav>
